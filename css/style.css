@@ -1,0 +1,32 @@
+html,
+body {
+    font-size: 16px;
+}
+
+.album .album-description {
+    padding: 0.625em 0.9375em;
+    min-height: 12em;
+}
+
+.album .album-title {
+    margin: 0;
+    font-size: 1.1rem;
+    line-height: 1em;
+}
+
+.panel-heading {
+    position: relative;
+}
+
+.album .album-date {
+    font-size: 1em;
+    line-height: 1.1em;
+}
+.album-input-description {
+    min-height: 200px;
+    max-width: 100%;
+}
+
+.btn-submit {
+    padding: 0.625em 0.9375em;
+}

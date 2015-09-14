@@ -8,17 +8,42 @@
 </head>
 <body>
     <div class="container" ng-controller="MainController">
+        <p>
+            <input type="text" class="form-control" ng-model="searchFor">
+        </p>
         <p>There are {{ albums.length }} albums available to view</p>
-        <ul>
-            <li ng-repeat="album in albums">
-                {{ album.title | uppercase }} <!-- apply filter to title -->
-                <ul>
-                    <li ng-repeat="(key, value) in album">
-                        {{ key }} => {{ value }}
-                    </li>
-                </ul>
-            </li>
-        </ul>
+        <div class="row">
+            <div class="col-sm-4 col-lg-3" ng-repeat="album in albums | filter:searchFor | orderBy:date">
+                <div class="panel panel-primary album">
+                    <div class="panel-heading clearfix">
+                        <h3 class="album-title pull-left">{{ album.title }}</h3>
+                        <span class="album-date pull-right">{{ album.date }}</span>
+                    </div>
+                    <div class="album-description">
+                        {{ album.description }}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="panel panel-primary album">
+                <div class="panel-heading clearfix">
+                    <h3 class="album-title pull-left"><input type="text" class="form-control"
+                                                             placeholder="Title...." ng-model="addingAlbum.title">
+                    </h3>
+                    <span class="album-date pull-right"><input type="text" class="form-control"
+                                                               placeholder="yyyy/mm/dd" ng-model="addingAlbum.date"></span>
+                </div>
+                <div class="album-description">
+                    <textarea name="album-description" id="album-description"
+                              class="form-control album-input-description" ng-model="addingAlbum.description"></textarea>
+                </div>
+                <p class="btn-submit">
+                    <button ng-click="addAlbum(addingAlbum)" class="btn btn-success" type="button">Add new album</button>
+                </p>
+            </div>
+        </div>
+
     </div>
     <!-- Latest compiled and minified JavaScript -->
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
