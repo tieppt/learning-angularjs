@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="anapp">
+<head>
+    <meta charset="UTF-8">
+    <title>AngularJs</title><!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <div class="container" ng-controller="MainController">
+        <p>There are {{ albums.length }} albums available to view</p>
+        <ul>
+            <li ng-repeat="album in albums">
+                {{ album.title | uppercase }} <!-- apply filter to title -->
+                <ul>
+                    <li ng-repeat="(key, value) in album">
+                        {{ key }} => {{ value }}
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+    <script src="./js/app.js"></script>
+</body>
+</html>
