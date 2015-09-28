@@ -1,0 +1,48 @@
+<div class="container" ng-cloak>
+    <p>
+        <input type="text" class="form-control" ng-model="searchFor">
+    </p>
+    <p>There are {{ albums.length }} albums available to view</p>
+    <div class="row">
+        <div class="col-sm-4 col-lg-3" ng-repeat="album in albums | filter:searchFor | orderBy:date">
+            <div class="panel panel-primary album">
+                <div class="panel-heading clearfix">
+                    <h3 class="album-title pull-left">
+                        <a href="#/album/{{ album.name }}">
+                        {{ album.title }}
+                        </a>
+                    </h3>
+                    <span class="album-date pull-right">{{ album.date }}</span>
+                </div>
+                <div class="album-description">
+                    {{ album.description }}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <h3>Add New Album</h3>
+        <form class="panel panel-primary album" name="addAlbumForm" novalidate>
+            <div class="panel-heading clearfix">
+                <div class="alert alert-danger" ng-show="addAlbumError">{{ addAlbumError }}</div>
+                <h3 class="album-title pull-left">
+                    <input type="text" class="form-control"
+                           placeholder="Title...." ng-model="addingAlbum.title">
+                </h3>
+                    <span class="album-date pull-right">
+                        <input type="text" class="form-control"
+                               placeholder="yyyy/mm/dd" ng-model="addingAlbum.date"></span>
+            </div>
+            <div class="album-description">
+                    <textarea name="album-description" id="album-description"
+                              class="form-control album-input-description" ng-model="addingAlbum.description"></textarea>
+            </div>
+            <div class="album-name">
+                <input type="text" class="form-control"
+                       placeholder="Name...." ng-model="addingAlbum.name">
+                <button ng-click="addAlbum(addingAlbum)" class="btn btn-success btn-submit" type="button">Add new album</button>
+            </div>
+        </form>
+    </div>
+
+</div>

@@ -14,6 +14,14 @@ body {
     line-height: 1em;
 }
 
+.album-title a {
+    color: #fff;
+}
+
+.album-title a:hover {
+    color: #f1f1f1;
+}
+
 .panel-heading {
     position: relative;
 }
@@ -27,6 +35,24 @@ body {
     max-width: 100%;
 }
 
-.btn-submit {
+.album-name {
     padding: 0.625em 0.9375em;
+}
+
+.btn-submit {
+    margin-top: 0.625em;
+}
+
+.photo .img-thumbnail {
+    max-height: 15.625em;
+}
+
+
+@media only screen and (min-width: 1200px) {
+    .album .album-title {
+        font-size: 1rem;
+    }
+    .album .album-date {
+        font-size: 0.8em;
+    }
 }

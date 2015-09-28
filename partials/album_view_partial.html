@@ -1,0 +1,11 @@
+<div class="container" ng-cloak>
+    <div class="alert alert-danger" ng-show="load_error_text">
+        {{ load_error_text }}
+    </div>
+    <div class="row">
+        <div class="photo thumbnail col-sm-6 col-md-4" ng-repeat="photo in photos">
+            <img ng-src="./{{ photo.filename }}" alt="{{ photo.filename }}" class="img-responsive img-thumbnail">
+            <p class="album-description">{{ photo.description }}</p>
+        </div>
+    </div>
+</div>
